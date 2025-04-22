@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -17,6 +17,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "overrides": {
+    "react-scripts": {
+      "@svgr/webpack": "8.1.0",
+      "typescript": "5.8.3",
+      "chokidar": "3.5.3",
+      "glob-parent": "6.0.2",
+      "semver": "7.7.1",
+      "postcss": "8.5.3",
+      "css-select": "5.1.0",
+      "minimist": "1.2.8"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-router-dom": "^6.30.0"
   }
 }
