@@ -24,23 +24,34 @@ function App() {
     }, 3000);
   };
 
-  const toggleMode = () => {
+  const removebodycolor = ()=>{
+    document.body.classList.remove('bg-success');
+    document.body.classList.remove('bg-warning');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-dark');
+    document.body.classList.remove('bg-light');
+  }
+
+  const toggleMode = (cls) => {
+    removebodycolor();
+    console.log(cls)
+    document.body.classList.add('bg-'+cls)
     if (mode === 'light') {
       setmode('dark');
       document.body.style.backgroundColor = '#042743';
       showAlert("Dark mode has been enabled", "success");
-      document.title = 'TextUtily - Dark Mode';
-      setInterval(() => {
-        document.title = 'TextUtily is an amazing Mode';
-      }, 2000);
-      setInterval(() => {
-        document.title = 'Install TextUtily Now';
-      }, 1500);
+      //document.title = 'TextUtily - Dark Mode';
+      // setInterval(() => {
+      //   document.title = 'TextUtily is an amazing Mode';
+      // }, 2000);
+      // setInterval(() => {
+      //   document.title = 'Install TextUtily Now';
+      // }, 1500);
     } else {
       setmode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");
-      document.title = "TextUtily - Light Mode";
+      //document.title = "TextUtily - Light Mode";
     }
   };
 
@@ -51,8 +62,9 @@ function App() {
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/" element={<TForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />} />
+            <Route exact path="/about"  mode={mode} element={<About />} />
+            <Route exact path="/" element={<TForm showAlert={showAlert} heading="React App - word counter | lower | upper" mode={mode} />} />
+            {/* <TForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode}/> */}
           </Routes>
         </div>
       </Router>
